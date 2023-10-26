@@ -1,11 +1,7 @@
 from typing import List, Any
-from pydantic import BaseModel
 from . import action_store as action_store
 from .http_wrapper import get_wrapper
-
-class JenkinsPipeline(BaseModel):
-    name: str
-    url: str
+from models.pipeline_models import JenkinsPipeline
 
 @action_store.kubiya_action()
 def list_jenkins_pipelines(_: Any = None) -> List[JenkinsPipeline]:
